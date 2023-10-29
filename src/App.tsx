@@ -21,7 +21,7 @@ function App(): React.JSX.Element {
     Number(window.localStorage.getItem(constants.LIMIT_PER_PAGE) ?? 20)
   );
   return (
-    <Box minH="100vh" bg={"gray.50"} maxW={"2048px"} mx={"auto"}>
+    <Box minH="100vh" maxW={"2048px"} mx={"auto"}>
       <SidebarContent
         onClose={() => onClose}
         setListItems={setListItems}
@@ -47,7 +47,7 @@ function App(): React.JSX.Element {
         </DrawerContent>
       </Drawer>
       <MobileNav display={{ base: "flex", md: "none" }} onOpen={onOpen} />
-      <Box ml={{ base: 0, md: 60 }} p={4} bg={"gray.50"}>
+      <Box ml={{ base: 0, md: 60 }} p={4} bg={"gray.100"}>
         <Flex mb={4} w={"100%"} justify={"flex-end"}>
           <LimitPerPage limit={limit} setLimit={setLimit} />
         </Flex>

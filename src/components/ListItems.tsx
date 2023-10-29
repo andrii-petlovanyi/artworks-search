@@ -44,6 +44,7 @@ export const ListItems = ({
         lg: "repeat(3, 1fr)",
       }}
       gap={6}
+      pl={4}
     >
       {rendererContent}
     </Grid>

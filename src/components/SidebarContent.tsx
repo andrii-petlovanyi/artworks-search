@@ -6,7 +6,6 @@ import {
   Divider,
   Flex,
   Text,
-  useColorModeValue,
 } from "@chakra-ui/react";
 import Search from "./Search";
 import { IItem, IListResponse } from "../interfaces/items.interface";
@@ -103,9 +102,9 @@ export const SidebarContent = ({
 
   return (
     <Box
-      bg={useColorModeValue("white", "gray.100")}
+      bg={"#fff"}
       borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      borderRightColor={"gray.200"}
       w={{ base: "full", md: 64 }}
       pos="fixed"
       minH="100vh"
@@ -113,11 +112,11 @@ export const SidebarContent = ({
       overflowY={"scroll"}
       {...rest}
     >
-      <Flex h="20" alignItems="center" mx="4" justifyContent={"space-between"}>
+      <Flex h="20" w={"full"} alignItems="center" justifyContent={"center"}>
         <Text
           fontSize="2xl"
           fontFamily="monospace"
-          color="purple.500"
+          color="purple.700"
           fontWeight="bold"
         >
           ArtworksLib
@@ -189,7 +188,7 @@ export const SidebarContent = ({
         <Divider />
         <Button
           size={"sm"}
-          fontWeight={500}
+          fontWeight={600}
           colorScheme="purple"
           onClick={handleClearFilters}
         >

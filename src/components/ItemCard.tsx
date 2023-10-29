@@ -1,6 +1,6 @@
 import React from "react";
 import { IItem } from "../interfaces/items.interface";
-import { GridItem, Heading, Image, Link, Text } from "@chakra-ui/react";
+import { GridItem, Heading, Image, Text } from "@chakra-ui/react";
 import { generateImgUrl } from "../helpers/generateImgUrl";
 import sanitizeHtml from "sanitize-html";
 import placeholder from "/public/placeholder.png";
@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const ItemCard = ({ item }: Props): React.JSX.Element => {
-  const { title, description, image_id, api_link } = item;
+  const { title, description, image_id } = item;
   const imgUrl = image_id ? generateImgUrl(image_id) : placeholder;
 
   return (
@@ -53,7 +53,8 @@ export const ItemCard = ({ item }: Props): React.JSX.Element => {
         noOfLines={6}
         dangerouslySetInnerHTML={{ __html: sanitizeHtml(description) }}
       />
-      <Link href={api_link}>Read more...</Link>
+      {/* TODO: maybe need added nested routing for every item */}
+      {/* <Link href={api_link}>Read more...</Link> */}
     </GridItem>
   );
 };

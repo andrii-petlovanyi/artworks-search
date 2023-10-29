@@ -2,14 +2,24 @@ import React, { useMemo } from "react";
 import { IItem } from "../interfaces/items.interface";
 import { Grid } from "@chakra-ui/react";
 import { ItemCard } from "./ItemCard";
+import { CardSkeleton } from "./CardSkeleton";
 
 interface Props {
-  listItems: Array<IItem>;
+  listItems: Array<IItem> | undefined;
+  isLoading: boolean;
+  limit: number;
 }
 
-export const ListItems = ({ listItems }: Props): React.JSX.Element => {
+export const ListItems = ({
+  listItems,
+  isLoading,
+  limit,
+}: Props): React.JSX.Element => {
   const content = {
-    hasContent: listItems.map((item: IItem) => (
+    isLoading: [...Array(limit).keys()].map((item: number) => (
+      <CardSkeleton key={item} />
+    )),
+    hasContent: listItems?.map((item: IItem) => (
       <ItemCard key={item.id} item={item} />
     )),
     noContent: "Not found artworks with entered search params",
@@ -17,12 +27,14 @@ export const ListItems = ({ listItems }: Props): React.JSX.Element => {
 
   const rendererContent = useMemo(() => {
     switch (true) {
-      case listItems.length > 0:
+      case isLoading:
+        return content.isLoading;
+      case listItems && listItems.length > 0:
         return content.hasContent;
-      default:
+      case listItems && listItems.length == 0:
         return content.noContent;
     }
-  }, [listItems]);
+  }, [listItems, isLoading]);
 
   return (
     <Grid

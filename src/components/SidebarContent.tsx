@@ -25,12 +25,14 @@ interface SidebarContentProps extends BoxProps {
   onClose: () => void;
   setListItems: (listItems: Array<IItem>) => void;
   setIsLoading: (isLoading: boolean) => void;
+  limit: number;
 }
 
 export const SidebarContent = ({
   onClose,
   setListItems,
   setIsLoading,
+  limit,
   ...rest
 }: SidebarContentProps) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -42,6 +44,7 @@ export const SidebarContent = ({
   const [artTitle, setArtTitle] = useState<string>("");
   const [galleryTitle, setGalleryTitle] = useState<string>("");
   const [isBoosted, setIsBoosted] = useState<boolean>(false);
+
   const [key, setKey] = useState<number>(0);
 
   const searchParams = {
@@ -68,7 +71,7 @@ export const SidebarContent = ({
           config.BASE_API_URL +
             `?q=${
               searchQuery ?? ""
-            }&fields=api_model, id, title, description, term_titles, thumbnail, image_id, api_link&limit=21`,
+            }&fields=api_model, id, title, description, term_titles, thumbnail, image_id, api_link&limit=${limit}`,
           searchParams
         );
 
@@ -91,6 +94,7 @@ export const SidebarContent = ({
     artistLocation,
     galleryTitle,
     isBoosted,
+    limit,
   ]);
 
   const handleClearFilters = () => {

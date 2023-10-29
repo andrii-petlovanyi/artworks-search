@@ -106,11 +106,10 @@ export const SidebarContent = ({
       bg={useColorModeValue("white", "gray.100")}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
-      w={{ base: "full", md: 60 }}
+      w={{ base: "full", md: 64 }}
       pos="fixed"
       minH="100vh"
       pb={"4"}
-      pl={1}
       overflowY={"scroll"}
       {...rest}
     >
@@ -125,7 +124,7 @@ export const SidebarContent = ({
         </Text>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
-      <Flex direction={"column"} gap={4} width={"100%"} pr={5}>
+      <Flex direction={"column"} gap={4} width={"100%"} px={5}>
         <Divider />
         <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
         <Divider />

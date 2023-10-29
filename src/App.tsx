@@ -51,7 +51,6 @@ function App(): React.JSX.Element {
         <Flex mb={4} w={"100%"} justify={"flex-end"}>
           <LimitPerPage limit={limit} setLimit={setLimit} />
         </Flex>
-
         <ListItems listItems={listItems} isLoading={isLoading} limit={limit} />
       </Box>
     </Box>

@@ -19,6 +19,7 @@ import {
   generateSearchMustParams,
 } from "../helpers/generateSearchParams";
 import { CheckboxInput } from "./FilterElements/CheckboxInput";
+import { Logo } from "./Logo";
 
 interface SidebarContentProps extends BoxProps {
   onClose: () => void;
@@ -107,20 +108,19 @@ export const SidebarContent = ({
       borderRightColor={"gray.200"}
       w={{ base: "full", md: 64 }}
       pos="fixed"
-      minH="100vh"
+      height="100vh"
       pb={"4"}
       overflowY={"scroll"}
       {...rest}
     >
-      <Flex h="20" w={"full"} alignItems="center" justifyContent={"center"}>
-        <Text
-          fontSize="2xl"
-          fontFamily="monospace"
-          color="purple.700"
-          fontWeight="bold"
-        >
-          ArtworksLib
-        </Text>
+      <Flex
+        h="20"
+        w={"full"}
+        alignItems="center"
+        justifyContent={{ base: "space-between", md: "center" }}
+        px={{ base: 4, md: "none" }}
+      >
+        <Logo />
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       <Flex direction={"column"} gap={4} width={"100%"} px={5}>

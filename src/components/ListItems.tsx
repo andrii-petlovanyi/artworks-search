@@ -41,10 +41,10 @@ export const ListItems = ({
       templateColumns={{
         base: "repeat(1, 1fr)",
         sm: "repeat(2, 1fr)",
-        lg: "repeat(3, 1fr)",
+        xl: "repeat(3, 1fr)",
       }}
       gap={6}
-      pl={4}
+      pl={{ base: 0, md: 4 }}
     >
       {rendererContent}
     </Grid>

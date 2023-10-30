@@ -43,7 +43,7 @@ export const ListItems = ({
         sm: "repeat(2, 1fr)",
         xl: "repeat(3, 1fr)",
       }}
-      gap={6}
+      gap={4}
       pl={{ base: 0, md: 4 }}
     >
       {rendererContent}

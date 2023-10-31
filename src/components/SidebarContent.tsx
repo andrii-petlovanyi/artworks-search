@@ -69,9 +69,9 @@ export const SidebarContent = ({
         setIsLoading(true);
         const { data: res } = await axios.post<IListResponse>(
           config.BASE_API_URL +
-            `?q=${
-              searchQuery ?? ""
-            }&fields=api_model, id, title, description, term_titles, thumbnail, image_id, api_link&limit=${limit}`,
+            `?q=${searchQuery ?? ""}&fields=${
+              config.ITEM_FIELDS
+            }&limit=${limit}`,
           searchParams
         );
 
